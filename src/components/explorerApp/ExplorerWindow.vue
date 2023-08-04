@@ -76,6 +76,15 @@ const minimzeWindow = () => {
     @apply absolute top-[10%] left-[10%] w-[400px] h-[211px] border-[1px] border-[#414141] rounded-[5px] bg-[#202020]
 }
 
+.explorer-window{
+    -webkit-touch-callout: none;  /* iPhone OS, Safari */
+    -webkit-user-select: none;    /* Chrome, Safari 3 */
+    -khtml-user-select: none;     /* Safari 2 */
+    -moz-user-select: none;       /* Firefox */
+    -ms-user-select: none;        /* IE10+ */
+    user-select: none; 
+}
+
 .top-bar{
     @apply flex justify-between items-center w-full bg-[#333]
 }

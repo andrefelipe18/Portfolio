@@ -19,7 +19,6 @@ const openExplorer = () => {
     hover:bg-opacity-10 hover:rounded-md
 }
 
-/* Quando for clicado deixa o fundo azul*/
 
 .container-explorer-app:active {
     @apply bg-[#009AFC] bg-opacity-10 rounded-md
@@ -31,5 +30,14 @@ const openExplorer = () => {
 
 .explorer-app-text {
     @apply font-light text-sm text-white
+}
+
+.explorer-app-text{
+    -webkit-touch-callout: none;  /* iPhone OS, Safari */
+    -webkit-user-select: none;    /* Chrome, Safari 3 */
+    -khtml-user-select: none;     /* Safari 2 */
+    -moz-user-select: none;       /* Firefox */
+    -ms-user-select: none;        /* IE10+ */
+    user-select: none;           
 }
 </style>
