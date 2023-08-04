@@ -16,12 +16,12 @@ const router = createRouter({
         {
           path: '/resume',
           name: 'Resume',
-          component: () => import('@/components/about/About.vue')
+          component: () => import('@/components/resume/Resume.vue')
         },
         {
           path: '/contact',
           name: 'Contact',
-          component: () => import('@/components/about/About.vue')
+          component: () => import('@/components/contact/Contact.vue')
         },
         {
           path: '/projects',

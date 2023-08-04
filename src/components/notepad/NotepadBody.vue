@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Moveable from "vue3-moveable";
-import { onMounted, } from "vue";
+import { onMounted, ref } from "vue";
 import { useRouter } from 'vue-router'
 
 const props = defineProps({
@@ -20,9 +20,7 @@ const throttleDrag = 1;
 const edgeDraggable = false;
 const startDragRotate = 0;
 const throttleDragRotate = 0;
-const targetMoveable = props.target + "Target";
 const router = useRouter();
-console.log(targetMoveable);
 
 const refTarget = ref(null);
 
@@ -55,8 +53,8 @@ const closeWindow = () => {
         <div class="notepad-window" ref="refTarget">
             <div class="flex justify-between items-center bg-white">        
                 <div class="flex pt-0.5 pl-2 items-center ">
-                <img src="/notepad-icon.webp" alt="notepad icon" class="h-4">
-                <p class="font-light text-gray-800 ml-1 ">{{ title }} - Notepad</p>                
+                <img src="/notepad-icon.webp" alt="notepad icon" class="h-4 noselect">
+                <p class="font-light text-gray-800 ml-1 noselect">{{ title }} - Notepad</p>                
                 </div>
 
                 <div class="actions-buttons">
@@ -64,12 +62,12 @@ const closeWindow = () => {
                     <div class="close" @click="closeWindow">X</div>
                 </div> 
             </div>
-            <div class="flex bg-white pl-1 font-light text-xs">
-                <p class=""><span class="underline">A</span>rquivo</p>
-                <p class="ml-2"><span class="underline">E</span>ditar</p>
-                <p class="ml-2"><span class="underline">F</span>ormatar</p>
-                <p class="ml-2"><span class="underline">E</span>xibir</p>
-                <p class="ml-2"><span class="underline">A</span>juda</p>
+            <div class="flex bg-white pl-1 font-light text-sm text-gray-400">
+                <p class="text-lw noselect"><span class="underline">A</span>rquivo</p>
+                <p class="text-lw ml-2 noselect"><span class="underline">E</span>ditar</p>
+                <p class="text-lw ml-2 noselect"><span class="underline">F</span>ormatar</p>
+                <p class="text-lw ml-2 noselect"><span class="underline">E</span>xibir</p>
+                <p class="text-lw ml-2 noselect"><span class="underline">A</span>juda</p>
             </div>
             <hr class="bg-[#f0f0f0]">
             <div class="notepad-text">
@@ -96,12 +94,12 @@ const closeWindow = () => {
 }
 .minimize{
     @apply w-[40px] h-[40px] text-center text-gray-800 flex items-center justify-center mr-3
-    hover:bg-[#d8d8d8] transition-all duration-100 font-light
+    hover:bg-[#d8d8d8] transition-all duration-100 font-medium
 }
 
 .close{
     @apply w-[40px] h-[40px] text-center text-gray-800 flex items-center justify-center
-    hover:bg-[#e81123] transition-all duration-100 font-light
+    hover:bg-[#e81123] transition-all duration-100 font-medium hover:text-white
 }
 .close:selected{
     @apply bg-[#e81123]
@@ -112,14 +110,21 @@ const closeWindow = () => {
 }
 
 .notepad-text{
-    padding: 0.5rem;
+    padding: 0.8rem;
     background-color: #fff;
     height: 100%; 
     overflow-y: scroll;
     overflow-x: hidden;
 }
 
-/* Personaliza o scroll para ficar igual o notepad do windows */
+.text-lw{
+    @apply hover:bg-blue-100 transition-all duration-100 hover:border hover:border-blue-400
+}
+
+.notepad-text::-webkit-scrollbar {
+    background-color: rgb(229 231 235);
+}
+
 .notepad-text::-webkit-scrollbar {
     background-color: rgb(229 231 235);
 }
@@ -137,6 +142,20 @@ const closeWindow = () => {
 }
 
 .notepad-text::-webkit-scrollbar-button {
-    background-color: rgb(179 179 179);
+    background-color: #dadada;    
+}
+
+.notepad-text::-webkit-scrollbar-button:active {
+    background-color: #606060;
+}
+
+.noselect{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;        
+    user-select: none;
+    cursor: default !important;
 }
 </style>

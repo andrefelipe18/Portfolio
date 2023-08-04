@@ -75,7 +75,7 @@ const minimzeWindow = () => {
 
 <style scoped>
 .explorer-window{
-    @apply absolute top-[10%] left-[10%] w-[400px] h-[211px] border-[1px] border-[#414141] rounded-[1px] bg-[#202020]
+    @apply absolute top-[10%] left-[10%] w-[410px] h-[211px] border-[1px] border-[#414141] rounded-[1px] bg-[#202020]
 }
 
 .explorer-window{
@@ -124,6 +124,6 @@ const minimzeWindow = () => {
 }
 
 .content{
-    @apply flex-1 overflow-y-auto  overflow-hidden
+    @apply flex-1 p-1
 }
 </style>

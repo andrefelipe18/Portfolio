@@ -7,17 +7,17 @@
         <img src="/about.webp" alt="about me icon" class="h-12">
         <p>About.txt</p>
     </router-link>
-    <router-link class="about" to="/resume">
-        <img src="/about.webp" alt="about me icon" class="h-12">
+    <router-link class="about" to="/resume">        
+        <img src="/resume.webp" alt="about me icon" class="h-12">
         <p>Resume.txt</p>
-    </router-link>
-    <router-link class="about" to="/contact">
-        <img src="/about.webp" alt="about me icon" class="h-12">
-        <p>Contact.txt</p>
     </router-link>
     <router-link class="about" to="/projects">
         <img src="/about.webp" alt="about me icon" class="h-12">
         <p>Projects.txt</p>
+    </router-link>
+    <router-link class="about" to="/contact">        
+        <img src="/resume.webp" alt="about me icon" class="h-12">
+        <p>Contact_Me.txt</p>
     </router-link>
   </div>
 </template>
