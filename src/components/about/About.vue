@@ -45,7 +45,7 @@ const closeWindow = () => {
                 </div>
 
                 <div class="actions-buttons">
-                    <div class="minimize" @click="minimzeWindow">-</div>
+                    <div class="minimize">-</div>
                     <div class="close" @click="closeWindow">X</div>
                 </div> 
             </div>
