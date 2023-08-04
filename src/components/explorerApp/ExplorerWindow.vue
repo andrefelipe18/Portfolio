@@ -14,10 +14,12 @@ onMounted(() => {
     console.log("ExplorerWindow mounted");
     
     const moveableOrigin = document.querySelector(".moveable-origin") as HTMLElement;
-    moveableOrigin.style.display = "none";
+    moveableOrigin.style.display = "none";  
 
-    const moveableControlBox = document.querySelector(".moveable-control-box") as HTMLElement;
-    moveableControlBox.style.border = "none";
+    const moveableLine = document.querySelectorAll(".moveable-line.moveable-direction") as NodeListOf<HTMLElement>;
+    moveableLine.forEach((element) => {
+        element.style.display = "none";
+    });
 });
 
 const onDrag = (e: any) => {
@@ -73,7 +75,7 @@ const minimzeWindow = () => {
 
 <style scoped>
 .explorer-window{
-    @apply absolute top-[10%] left-[10%] w-[400px] h-[211px] border-[1px] border-[#414141] rounded-[5px] bg-[#202020]
+    @apply absolute top-[10%] left-[10%] w-[400px] h-[211px] border-[1px] border-[#414141] rounded-[1px] bg-[#202020]
 }
 
 .explorer-window{
