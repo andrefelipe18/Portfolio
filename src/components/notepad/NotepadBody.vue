@@ -2,6 +2,7 @@
 import Moveable from "vue3-moveable";
 import { onMounted, ref } from "vue";
 import { useRouter } from 'vue-router'
+import { useTaskbarStore } from "@/stores";
 
 const props = defineProps({
     title: {
@@ -39,15 +40,26 @@ onMounted(() => {
 
 const onDrag = (e: any) => {
     e.target.style.transform = e.transform;    
-    e.target.style.zIndex = "9999";    
+    
+    // Enquanto estiver arrastando o explorer, o z-index dele tem que ser maior que o do explorer
+    const explorerWindow = document.querySelector(".explorer-window") as HTMLElement;
+    if(explorerWindow) { explorerWindow.style.zIndex = "1000" }
+    e.target.style.zIndex = "9999";
 };
 
 const closeWindow = () => {    
     router.push({ path: '/' });
+
+    const taskbarStore = useTaskbarStore()
+    taskbarStore.removeWindow(props.target);
 };
 
+const minimizeWindow = () => {
+    router.push({ path: '/' });
 
-
+    const taskbarStore = useTaskbarStore()
+    taskbarStore.addMinizedWindow(props.target);
+};
 </script>
 <template>
   <div class="">
@@ -59,8 +71,8 @@ const closeWindow = () => {
                 </div>
 
                 <div class="actions-buttons">
-                    <div class="minimize">-</div>
-                    <div class="close" @click="closeWindow">X</div>
+                    <div class="minimize" @click="minimizeWindow" @touchstart.passive="minimizeWindow">-</div>
+                    <div class="close" @click="closeWindow" @touchstart.passive="closeWindow">X</div>
                 </div> 
             </div>
             <div class="flex bg-white pl-1 font-light text-sm text-gray-400">

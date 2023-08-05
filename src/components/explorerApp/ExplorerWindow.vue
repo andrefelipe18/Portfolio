@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { useExplorerStore } from '../../stores'
+import { useExplorerStore } from '@/stores'
 import Moveable from "vue3-moveable";
 import { onMounted, ref } from "vue";
+import { useTaskbarStore } from '@/stores';
 
 const draggable = true;
 const throttleDrag = 1;
@@ -10,9 +11,7 @@ const startDragRotate = 0;
 const throttleDragRotate = 0;
 const targetRef = ref(null);
 
-onMounted(() => {
-    console.log("ExplorerWindow mounted");
-    
+onMounted(() => {    
     const moveableOrigin = document.querySelector(".moveable-origin") as HTMLElement;
     moveableOrigin.style.display = "none";  
 
@@ -23,17 +22,26 @@ onMounted(() => {
 });
 
 const onDrag = (e: any) => {
-    e.target.style.transform = e.transform;
+    e.target.style.transform = e.transform;    
+    e.target.style.zIndex = "9999";
+    const notepadWindow = document.querySelector(".notepad-window") as HTMLElement;
+    if(notepadWindow) { notepadWindow.style.zIndex = "1000" }
 };
 
 const closeWindow = () => {    
     const explorerStore = useExplorerStore()
     explorerStore.setExplorerOpen(false)
+
+    const taskbarStore = useTaskbarStore()
+    taskbarStore.removeWindow('explorer');    
 }
 
 const minimzeWindow = () => {
     const explorerStore = useExplorerStore()
     explorerStore.setExplorerOpen(false)
+
+    const taskbarStore = useTaskbarStore()
+    taskbarStore.addMinizedWindow('explorer');
 }
 </script>
 
@@ -43,8 +51,8 @@ const minimzeWindow = () => {
             <div class="top-bar">
                 <div class="title">Explorer</div>
                 <div class="actions-buttons">
-                    <div class="minimize" @click="minimzeWindow">-</div>
-                    <div class="close" @click="closeWindow">X</div>
+                    <div class="minimize" @click="minimzeWindow" @touchstart.passive="minimzeWindow">-</div>
+                    <div class="close" @click="closeWindow" @touchstart.passive="closeWindow">X</div>
                 </div>
             </div>
             <div class="mid-bar">
@@ -79,12 +87,12 @@ const minimzeWindow = () => {
 }
 
 .explorer-window{
-    -webkit-touch-callout: none;  /* iPhone OS, Safari */
-    -webkit-user-select: none;    /* Chrome, Safari 3 */
-    -khtml-user-select: none;     /* Safari 2 */
-    -moz-user-select: none;       /* Firefox */
-    -ms-user-select: none;        /* IE10+ */
-    user-select: none; 
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .top-bar{
