@@ -3,8 +3,9 @@ import { defineStore } from 'pinia'
 export const useTaskbarStore = defineStore('taskbarStore', {
     state: () => ({
         windowsOpenedList: <Array<string>>[
-            'explorer'
+            'explorer',            
         ],
+        windowsMinimizedList: <Array<string>>[]
     }),
 
     actions: {
@@ -13,8 +14,8 @@ export const useTaskbarStore = defineStore('taskbarStore', {
                 return;
             }
 
-            if (window == "about" || window == "resume" || window == "contact") {                    
-                this.windowsOpenedList = this.windowsOpenedList.filter((item) => item != "about" && item != "resume" && item != "contact");
+            if (window == "about" || window == "resume" || window == "contact" || window == "projects") {                    
+                this.windowsOpenedList = this.windowsOpenedList.filter((item) => item != "about" && item != "resume" && item != "contact" && item != "projects");
             } 
                         
             this.windowsOpenedList.push(window);    

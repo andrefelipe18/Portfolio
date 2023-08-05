@@ -1,15 +1,20 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
-import { useTaskbarStore } from "@/stores";
+import { useTaskbarStore, useNotepadStore } from "@/stores";
 const router = useRouter();
+const taskbarStore = useTaskbarStore()
+const notepadStore = useNotepadStore()
 
 const goTo = (path: string): void => {
     router.push({ path: `/${path}` });
+
+    taskbarStore.addMinizedWindow(path)
+    notepadStore.setNotepadOpen(true)
 }
 
-const addInTaskbar = (target: string): void => {
-    const taskbarStore = useTaskbarStore()
+const addInTaskbar = (target: string): void => {    
     taskbarStore.addMinizedWindow(target);
+    notepadStore.setNotepadOpen(true)
 }
 </script>
 <template>

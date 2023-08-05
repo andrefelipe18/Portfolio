@@ -31,9 +31,6 @@ const onDrag = (e: any) => {
 const closeWindow = () => {    
     const explorerStore = useExplorerStore()
     explorerStore.setExplorerOpen(false)
-
-    const taskbarStore = useTaskbarStore()
-    taskbarStore.removeWindow('explorer');    
 }
 
 const minimzeWindow = () => {

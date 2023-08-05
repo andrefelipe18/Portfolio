@@ -1,15 +1,62 @@
 <script setup lang="ts">
-import { useTaskbarStore } from '@/stores/'
-import { useExplorerStore } from '@/stores/'
+import { useTaskbarStore, useExplorerStore, useNotepadStore } from '@/stores/'
 
 const taskbarStore = useTaskbarStore()
+const explorerStore = useExplorerStore()
+const notepadStore = useNotepadStore()
 
 const minimizeApps = computed(() => taskbarStore.windowsOpenedList)
 
 const openExplorer = () => {
-  const explorerStore = useExplorerStore()
   explorerStore.setExplorerOpen(true)
 }
+
+const openNotepad = () => {
+  notepadStore.setNotepadOpen(true)
+}
+
+const explorerOpen = computed(() => explorerStore.openWindow);
+const notepadOpen = computed(() => notepadStore.isOpen);
+
+watch(explorerOpen, (value) => {
+  if (value) {
+    const explorerLink = document.querySelector('#explorerMinimize') as HTMLElement
+    
+    if(explorerLink) {
+        const explorer = explorerLink.parentElement as HTMLElement
+        explorer.style.backgroundColor = '#474747'
+        explorer.style.borderBottom = '1px solid #83c0ef'
+    }
+  } else {
+    const explorerLink = document.querySelector('#explorerMinimize') as HTMLElement
+    if(explorerLink) {
+        const explorer = explorerLink.parentElement as HTMLElement
+        explorer.style.backgroundColor = 'transparent'
+        explorer.style.borderBottom = 'none'
+    }
+  }
+});
+
+watch(notepadOpen, (value) => {
+  if (value) {
+    setTimeout(() => {
+        const notepadLink = document.querySelector('#notepadMinimize') as HTMLElement    
+        if(notepadLink) {
+            const notepad = notepadLink.parentElement as HTMLElement
+            notepad.style.backgroundColor = '#474747'
+            notepad.style.borderBottom = '1px solid #83c0ef'
+        }
+    }, 100);
+  } else {
+    const notepadLink = document.querySelector('#notepadMinimize') as HTMLElement    
+    if(notepadLink) {
+        console.log('FECHADO');
+        const notepad = notepadLink.parentElement as HTMLElement
+        notepad.style.backgroundColor = 'transparent'
+        notepad.style.borderBottom = 'none'
+    }
+  }
+});
 </script>
 <template>
   <section>
@@ -18,11 +65,11 @@ const openExplorer = () => {
     </div>
     <div class="apps">
         <ul class="apps-list">
-            <li v-for="app in minimizeApps" :key="app" class="app">
-                <a v-if="app === 'explorer'" @click="openExplorer" @touchstart.passive="openExplorer">
+            <li v-for="app in minimizeApps" :key="app" class="app" >
+                <a v-if="app === 'explorer'" @click="openExplorer" id="explorerMinimize" @touchstart.passive="openExplorer">
                   <img  src="/Windows_Explorer.svg" class="icon">
                 </a>
-                <router-link v-else :to="`/${app}`">
+                <router-link v-else :to="`/${app}`" @click="openNotepad" id="notepadMinimize" @touchstart.passive="openNotepad">
                   <img src="/notepad-icon.webp" class="icon">
                 </router-link>
             </li>
@@ -68,11 +115,20 @@ section{
 }
 
 .app {
-  @apply text-white text-sm font-light mx-2
+  @apply text-white text-sm font-light ml-[2px] p-4
 }
 
 .icon {
   @apply max-w-[20px] hover:cursor-pointer transition-all duration-300
   hover:opacity-80 hover:scale-110 
 }
+
 </style>
+<!--  console.log('ABERTO');
+    const notepadLink = document.querySelector('#notepadMinimize') as HTMLElement    
+    if(notepadLink) {
+        console.log('ABERTO');
+        const notepad = notepadLink.parentElement as HTMLElement
+        notepad.style.backgroundColor = '#474747'
+        notepad.style.borderBottom = '1px solid #83c0ef'
+    } -->

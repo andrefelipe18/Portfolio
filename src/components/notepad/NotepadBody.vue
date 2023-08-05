@@ -2,7 +2,8 @@
 import Moveable from "vue3-moveable";
 import { onMounted, ref } from "vue";
 import { useRouter } from 'vue-router'
-import { useTaskbarStore } from "@/stores";
+import { useTaskbarStore, useNotepadStore } from "@/stores";
+const notepadStore = useNotepadStore()
 
 const props = defineProps({
     title: {
@@ -51,6 +52,7 @@ const closeWindow = () => {
 
     const taskbarStore = useTaskbarStore()
     taskbarStore.removeWindow(props.target);
+    notepadStore.setNotepadOpen(false)
 };
 
 const minimizeWindow = () => {
@@ -58,6 +60,7 @@ const minimizeWindow = () => {
 
     const taskbarStore = useTaskbarStore()
     taskbarStore.addMinizedWindow(props.target);
+    notepadStore.setNotepadOpen(false)
 };
 </script>
 <template>
