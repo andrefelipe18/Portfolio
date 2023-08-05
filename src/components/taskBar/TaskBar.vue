@@ -77,10 +77,10 @@ const hora = computed(() => {
           <ul class="apps-list">
               <li v-for="app in minimizeApps" :key="app" class="app" >
                   <a v-if="app === 'explorer'" @click="openExplorer" id="explorerMinimize" @touchstart.passive="openExplorer">
-                    <img  src="/Windows_Explorer.svg" class="icon">
+                    <img  src="/Windows_Explorer.svg" class="icon" alt="Windows Explorer icon">
                   </a>
                   <router-link v-else :to="`/${app}`" @click="openNotepad" id="notepadMinimize" @touchstart.passive="openNotepad">
-                    <img src="/notepad-icon.webp" class="icon">
+                    <img src="/notepad-icon.webp" class="icon" alt="Windows Notepad icon">
                   </router-link>
               </li>
           </ul>
@@ -92,10 +92,10 @@ const hora = computed(() => {
           <svg xmlns="http://www.w3.org/2000/svg" class="icon  h-3" viewBox="0 0 512 512"><path fill="white" d="M256 63.6L0 319.6l69.8 69.8L256 203.2l186.2 186.2l69.8-69.8z"/></svg>
         </li>
         <li class="icon-hover">
-          <img src="/volume.png" class="icon">
+          <img src="/volume.png" class="icon" alt="Windows Volume icon">
         </li>
         <li class="icon-hover">
-          <img src="/wifi.png" class="icon">
+          <img src="/wifi.png" class="icon" alt="Windows Wifi icon">
         </li>
         <li class="icon-hover">
           {{ hora }}
