@@ -4,7 +4,7 @@
 <template>
   <div>
     <NotepadBody title="Projects" target="projects">
-      <h1 class="font-bold text-gray-800 text-lg mt-4">Meus Projetos!</h1>
+      <h1 class="font-bold text-gray-800 text-lg mt-4">Meus Projetos</h1>
       <p class="mt-3 text-gray-600">Na minha jornada como desenvolvedor web, tive a oportunidade de criar e participar de diversos projetos. Alguns deles foram realizados de forma independente, enquanto outros surgiram durante cursos. Abaixo, destaco alguns desses projetos. Se desejar explorar mais detalhes sobre os projetos, confira o meu <a href="https://github.com/andrefelipe18" target="_blank" class="link">GitHub aqui</a>.</p>
 
       <hr class="mt-2">
