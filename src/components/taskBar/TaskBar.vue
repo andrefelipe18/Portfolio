@@ -57,6 +57,15 @@ watch(notepadOpen, (value) => {
     }
   }
 });
+
+const hora = computed(() => {
+  const date = new Date()
+  const hora = date.getHours()
+  const minuto = date.getMinutes()
+  const segundo = date.getSeconds()
+
+  return `${hora}:${minuto}`
+})
 </script>
 <template>
   <section>
@@ -89,7 +98,7 @@ watch(notepadOpen, (value) => {
           <img src="/wifi.png" class="icon">
         </li>
         <li class="icon-hover">
-          {{ new Date().toLocaleTimeString() }}
+          {{ hora }}
         </li>
         <li class="icon-hover">
           <svg xmlns="http://www.w3.org/2000/svg" class="icon h-3" viewBox="0 0 15 15"><path fill="none" stroke="white" stroke-linecap="square" stroke-linejoin="round" d="m5.5 11.493l2 2.998l2-2.998h4a1 1 0 0 0 1-1V1.5a.999.999 0 0 0-1-.999h-12a1 1 0 0 0-1 1v8.993a1 1 0 0 0 1 1h4Z" clip-rule="evenodd"/></svg>
@@ -99,11 +108,6 @@ watch(notepadOpen, (value) => {
   </section>
 </template>
 <style scoped>
-/* section {
-  @apply fixed bottom-0 min-h-[50px] bg-[#0C0C0C] w-full
-  z-50 flex items-center
-} */
-
 section {
   @apply fixed bottom-0 min-h-[50px] bg-[#0C0C0C] w-full
   z-50 grid items-center grid-cols-8
