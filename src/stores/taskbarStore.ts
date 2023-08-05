@@ -2,11 +2,13 @@ import { defineStore } from 'pinia'
 
 export const useTaskbarStore = defineStore('taskbarStore', {
     state: () => ({
-        windowsOpenedList: <Array<string>>[],
+        windowsOpenedList: <Array<string>>[
+            'explorer'
+        ],
     }),
 
     actions: {
-        addMinizedWindow(window: string) {            
+        addMinizedWindow(window: string): void {            
             if (this.windowsOpenedList.includes(window)) {
                 return;
             }
@@ -17,7 +19,7 @@ export const useTaskbarStore = defineStore('taskbarStore', {
                         
             this.windowsOpenedList.push(window);    
         },
-        removeWindow(window: string) {
+        removeWindow(window: string): void {
             this.windowsOpenedList = this.windowsOpenedList.filter((item) => item != window);
         }
     },

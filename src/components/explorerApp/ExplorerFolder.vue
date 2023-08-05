@@ -1,9 +1,12 @@
 <script setup lang="ts">
-import { useExplorerStore } from '../../stores'
+import { useExplorerStore, useTaskbarStore } from '../../stores'
 
 const openExplorer = () => {
     const explorerStore = useExplorerStore()
     explorerStore.setExplorerOpen(true)
+
+    const taskbarStore = useTaskbarStore()
+    taskbarStore.addMinizedWindow('explorer')
 }
 
 </script>

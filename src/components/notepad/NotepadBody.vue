@@ -25,8 +25,7 @@ const router = useRouter();
 
 const refTarget = ref(null);
 
-onMounted(() => {
-    
+onMounted(() => {    
     const moveableOrigin = document.querySelectorAll(".moveable-origin") as NodeListOf<HTMLElement>;
     moveableOrigin.forEach((element) => {
         element.style.display = "none";
