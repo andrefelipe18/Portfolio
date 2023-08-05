@@ -6,12 +6,11 @@
             <p class="institute">Fatec Lins</p>
             <p class="date">2022 - Atualmente</p>
         </li>
-        <li class="pb-24">
+        <li class="">
             <p class="course">Ensino Médio Regular</p>
             <p class="institute">Etec Lins</p>
-            <p class="date pb-24">2019 - 2021</p>
-        </li>                
-        <span class="mt-8">ㅤ</span>
+            <p class="date">2019 - 2021</p>
+        </li>                        
     </ul>
 </template>
 <style scoped>
