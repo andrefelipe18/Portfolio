@@ -11,7 +11,7 @@
             <p class="institute">Etec Lins</p>
             <p class="date pb-24">2019 - 2021</p>
         </li>                
-        <span class="mt-36">ㅤ</span>
+        <span class="mt-8">ㅤ</span>
     </ul>
 </template>
 <style scoped>

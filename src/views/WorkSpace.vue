@@ -4,7 +4,7 @@
 <template>
   <section class="workspace" id="workspace">
     <Explorer></Explorer>
-    
+    <MensagemAtivacao></MensagemAtivacao>
     <RouterView />
   </section>
 </template>

@@ -38,7 +38,8 @@ onMounted(() => {
 });
 
 const onDrag = (e: any) => {
-    e.target.style.transform = e.transform;
+    e.target.style.transform = e.transform;    
+    e.target.style.zIndex = "9999";    
 };
 
 const closeWindow = () => {    
