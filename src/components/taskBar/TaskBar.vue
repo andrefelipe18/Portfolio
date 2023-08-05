@@ -78,20 +78,20 @@ watch(notepadOpen, (value) => {
       </div>
     </div>
     <div class="right-icons">
-      <ul class="flex items-center">
-        <li>
-          <svg xmlns="http://www.w3.org/2000/svg" class="icon h-3" viewBox="0 0 512 512"><path fill="white" d="M256 63.6L0 319.6l69.8 69.8L256 203.2l186.2 186.2l69.8-69.8z"/></svg>
+      <ul class="flex items-center list-rigth-icons">
+        <li class="icon-hover">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon  h-3" viewBox="0 0 512 512"><path fill="white" d="M256 63.6L0 319.6l69.8 69.8L256 203.2l186.2 186.2l69.8-69.8z"/></svg>
         </li>
-        <li class="ml-2">
+        <li class="icon-hover">
           <img src="/volume.png" class="icon">
         </li>
-        <li class="ml-1">
+        <li class="icon-hover">
           <img src="/wifi.png" class="icon">
         </li>
-        <li class="ml-1">
+        <li class="icon-hover">
           {{ new Date().toLocaleTimeString() }}
         </li>
-        <li class="ml-2">
+        <li class="icon-hover">
           <svg xmlns="http://www.w3.org/2000/svg" class="icon h-3" viewBox="0 0 15 15"><path fill="none" stroke="white" stroke-linecap="square" stroke-linejoin="round" d="m5.5 11.493l2 2.998l2-2.998h4a1 1 0 0 0 1-1V1.5a.999.999 0 0 0-1-.999h-12a1 1 0 0 0-1 1v8.993a1 1 0 0 0 1 1h4Z" clip-rule="evenodd"/></svg>
         </li>
       </ul>
@@ -148,6 +148,10 @@ section{
 .icon {
   @apply max-w-[20px] hover:cursor-pointer transition-all duration-300
   hover:opacity-80 hover:scale-110 
+}
+
+.icon-hover {
+  @apply text-white text-sm font-light px-1 py-4 hover:bg-[#474747]
 }
 
 .left-icons {
