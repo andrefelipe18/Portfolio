@@ -19,7 +19,7 @@ useHead({
 <style scoped>
 .main {
   margin: auto;
-  background: url(/wallpaper.webp) #fff;
+  background: url(/img/wallpaper.webp) #fff;
   min-height: 100vh;
   background-position: center;
   background-size: cover;

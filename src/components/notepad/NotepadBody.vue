@@ -63,12 +63,13 @@ const minimizeWindow = () => {
     notepadStore.setNotepadOpen(false)
 };
 </script>
-<template>
-  <div class="">
+<template>   
+    <div class="">
+        <Transition>
         <div class="notepad-window" ref="refTarget">
             <div class="flex justify-between items-center bg-white">        
                 <div class="flex pt-0.5 pl-2 items-center ">
-                <img src="/notepad-icon.webp" alt="notepad icon" class="h-4 noselect">
+                <img src="/img/notepad-icon.webp" alt="notepad icon" class="h-4 noselect">
                 <p class="font-light text-gray-800 ml-1 noselect">{{ title }} - Notepad</p>                
                 </div>
 
@@ -88,7 +89,8 @@ const minimizeWindow = () => {
             <div class="notepad-text">
                 <slot></slot>
             </div>
-        </div>        
+        </div> 
+        </Transition>       
         <Moveable 
         :target="refTarget"
         :draggable="draggable"
@@ -101,7 +103,7 @@ const minimizeWindow = () => {
         :throttleResize="1"        
         @drag="onDrag"        
         />
-    </div>
+    </div>    
 </template>
 <style scoped>
 .notepad-window{
@@ -172,5 +174,30 @@ const minimizeWindow = () => {
     -ms-user-select: none;        
     user-select: none;
     cursor: default !important;
+}
+
+/* we will explain what these classes do next! */
+.v-enter-from{
+    opacity: 0;
+}
+
+.v-enter-active{
+    transition: opacity 0.5s;
+}
+
+.v-enter-to{
+    opacity: 1;
+}
+
+.v-leave-from{
+    opacity: 1;
+}
+
+.v-leave-active{
+    transition: opacity 0.5s;
+}
+
+.v-leave-to{
+    opacity: 0;
 }
 </style>

@@ -20,20 +20,20 @@ const addInTaskbar = (target: string): void => {
 <template>
   <div class="content-container">
     <router-link class="about" to="/about" @click="addInTaskbar('about')" @touchstart.passive="goTo('about')">        
-        <img src="/about.webp" alt="about me icon" class="h-12">
-        <p>About.txt</p>        
+        <img src="/img/about.webp" alt="about me icon" class="h-12">
+        <p class="text-gray-200">About.txt</p>        
     </router-link>
     <router-link class="about" to="/resume" @click="addInTaskbar('resume')" @touchstart.passive="goTo('resume')">                
-        <img src="/resume.webp" alt="about me icon" class="h-12">
-        <p>Resume.txt</p>        
+        <img src="/img/resume.webp" alt="about me icon" class="h-12">
+        <p class="text-gray-200">Resume.txt</p>        
     </router-link>
     <router-link class="about" to="/projects" @click="addInTaskbar('projects')" @touchstart.passive="goTo('projects')">        
-        <img src="/about.webp" alt="about me icon" class="h-12">
-        <p>Projects.txt</p>        
+        <img src="/img/about.webp" alt="about me icon" class="h-12">
+        <p class="text-gray-200">Projects.txt</p>        
     </router-link>
     <router-link class="about" to="/contact" @click="addInTaskbar('contact')" @touchstart.passive="goTo('contact')">                
-        <img src="/resume.webp" alt="about me icon" class="h-12">
-        <p>Contact_Me.txt</p>        
+        <img src="/img/resume.webp" alt="about me icon" class="h-12">
+        <p class="text-gray-200">Contact_Me.txt</p>        
     </router-link>
   </div>
 </template>

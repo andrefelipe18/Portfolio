@@ -17,7 +17,7 @@
         <a class="link" href="https://github.com/andrefelipe18/VFullAuth" target="_blank" rel="noopener noreferrer">VFullAuth</a>
       </p>
       <div class="flex justify-center">        
-        <img src="/vfull.png" class="h-14" alt="Vfull Icon">        
+        <img src="/img/vfull.png" class="h-14" alt="Vfull Icon">        
       </div>
 
       <hr class="mt-2">
@@ -29,7 +29,7 @@
         <a class="link" href="https://github.com/andrefelipe18/CashTrack" target="_blank" rel="noopener noreferrer">CashTrack</a>
       </p>
       <div class="flex justify-center">        
-        <img src="/cashtrack.svg" class="mt-2 h-8" alt="CashTrack Icon">
+        <img src="/img/cashtrack.svg" class="mt-2 h-8" alt="CashTrack Icon">
       </div>
 
       <hr class="mt-2">
